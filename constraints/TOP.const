@@ -1,0 +1,173 @@
+<!DOCTYPE Robei>
+<Module Class="module" Code="assign P19=1;" Color="#d3d3d3" Device="xc7a50tfgg484" Family="artix7" Height="1080" Name="TOP" Parent="0" Type="const" Vendor="AMD" Width="1600" X="0" Y="0">
+ <Module Category="Current" Class="TOP" Code="assign U20=1;&#xa;assign P19=1;" Color="antiquewhite" Comment="" Height="572" Name="TOP1" Parameters="" Parent="TOP" Type="model" Width="589" X="573.5" Y="224">
+  <Port Color="#faebd7" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="clk_50m" Parent="TOP1" Side="bottom" Width="30" X="0.057725" Y="0.947552"/>
+  <Port Color="#7fffd4" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_in" Parent="TOP1" Side="bottom" Width="30" X="0.140917" Y="0.947552"/>
+  <Port Color="#ffebcd" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="output" Name="seg" Parent="TOP1" Side="bottom" Width="30" X="0.224109" Y="0.947552"/>
+  <Port Color="#0000ff" Connect="" Datasize="6" Datatype="wire" Description="" Height="30" Inout="output" Name="sel" Parent="TOP1" Side="bottom" Width="30" X="0.307301" Y="0.947552"/>
+  <Port Color="#8a2be2" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="buzz_out" Parent="TOP1" Side="bottom" Width="30" X="0.390492" Y="0.947552"/>
+  <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="pwm_right" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.524476"/>
+  <Port Color="#5f9ea0" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="pwm_left" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.634615"/>
+  <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="dir_left" Parent="TOP1" Side="top" Width="30" X="0.098472" Y="-0.0524476"/>
+  <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="rx" Parent="TOP1" Side="bottom" Width="30" X="0.473684" Y="0.947552"/>
+  <Port Color="#0000ff" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="right" Parent="TOP1" Side="bottom" Width="30" X="0.556876" Y="0.947552"/>
+  <Port Color="#8a2be2" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="go" Parent="TOP1" Side="bottom" Width="30" X="0.640068" Y="0.947552"/>
+  <Port Color="#a52a2a" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="back" Parent="TOP1" Side="bottom" Width="30" X="0.72326" Y="0.947552"/>
+  <Port Color="#00008b" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="left" Parent="TOP1" Side="bottom" Width="30" X="0.806452" Y="0.947552"/>
+  <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="U20" Parent="TOP1" Side="bottom" Width="30" X="0.889643" Y="0.947552"/>
+  <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="tx" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.854895"/>
+  <Port Color="#00ffff" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="input" Name="direction_in" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.304196"/>
+  <Port Color="#fff8dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_left_a" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.194056"/>
+  <Port Color="#dc143c" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_left_b" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.634615"/>
+  <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_right_a" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.414336"/>
+  <Port Color="#00008b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_right_b" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.524476"/>
+  <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="dout" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.744755"/>
+  <Port Color="#006400" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="do" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.854895"/>
+  <Port Color="#a9a9a9" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="sck" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.744755"/>
+  <Port Color="#bdb76b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN1" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.0839161"/>
+  <Port Color="#8b008b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN2" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.194056"/>
+  <Port Color="#556b2f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN3" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.304196"/>
+  <Port Color="#ff8c00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN4" Parent="TOP1" Side="right" Width="30" X="0.949066" Y="0.414336"/>
+  <Port Color="#8b0000" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="scl" Parent="TOP1" Side="top" Width="30" X="0.222411" Y="-0.0524476"/>
+  <Port Color="#8b0000" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="inout" Name="sda" Parent="TOP1" Side="top" Width="30" X="0.34635" Y="-0.0524476"/>
+  <Port Color="#8b0000" Connect="1" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="P19" Parent="TOP1" Side="top" Width="30" X="0.470289" Y="-0.0524476"/>
+  <Port Color="#b8860b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="echo_1" Parent="TOP1" Side="top" Width="30" X="0.594228" Y="-0.0524476"/>
+  <Port Color="#bdb76b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="trig_1" Parent="TOP1" Side="top" Width="30" X="0.718166" Y="-0.0524476"/>
+  <Port Color="#e9967a" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="echo_2" Parent="TOP1" Side="left" Width="30" X="-0.0509338" Y="0.0839161"/>
+  <Port Color="#8fbc8f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="trig_2" Parent="TOP1" Side="top" Width="30" X="0.842105" Y="-0.0524476"/>
+ </Module>
+ <Port Color="#faebd7" Description="" Drive="" Height="30" Name="Y18" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.930556"/>
+ <Port Color="#7fffd4" Description="" Drive="" Height="30" Name="J20" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.6"/>
+ <Port Color="#f0ffff" Description="" Drive="" Height="30" Name="K22" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.788889"/>
+ <Port Color="#f5f5dc" Description="" Drive="" Height="30" Name="G20" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.647222"/>
+ <Port Color="#ffe4c4" Description="" Drive="" Height="30" Name="K21" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.883333"/>
+ <Port Color="#b8860b" Description="" Drive="" Height="30" Name="L21" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.741667"/>
+ <Port Color="#ffebcd" Description="" Drive="" Height="30" Name="M22" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.040625" Y="-0.0277778"/>
+ <Port Color="#0000ff" Description="" Drive="" Height="30" Name="P20" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.836111"/>
+ <Port Color="#8a2be2" Description="" Drive="" Height="30" Name="N22" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.053125" Y="0.972222"/>
+ <Port Color="#a52a2a" Description="" Drive="" Height="30" Name="M21" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.694444"/>
+ <Port Color="#ff7f50" Description="" Drive="" Height="30" Name="AB6" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.296296"/>
+ <Port Color="#6495ed" Description="" Drive="" Height="30" Name="W9" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.358333"/>
+ <Port Color="#fff8dc" Description="" Drive="" Height="30" Name="Y1" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.42037"/>
+ <Port Color="#dc143c" Description="" Drive="" Height="30" Name="AB8" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.482407"/>
+ <Port Color="#00ffff" Description="" Drive="" Height="30" Name="AA8" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.544444"/>
+ <Port Color="#00008b" Description="" Drive="" Height="30" Name="AA3" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.606481"/>
+ <Port Color="#008b8b" Description="" Drive="" Height="30" Name="Y9" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.668519"/>
+ <Port Color="#b8860b" Description="" Drive="" Height="30" Name="AA5" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.730556"/>
+ <Port Color="#a9a9a9" Description="" Drive="" Height="30" Name="AB2" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.792593"/>
+ <Port Color="#006400" Description="" Drive="" Height="30" Name="AB3" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.85463"/>
+ <Port Color="#a9a9a9" Description="" Drive="" Height="30" Name="AA4" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.916667"/>
+ <Port Color="#bdb76b" Description="" Drive="" Height="30" Name="AB5" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.115625" Y="0.972222"/>
+ <Port Color="#8b008b" Description="" Drive="" Height="30" Name="AA6" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.178125" Y="0.972222"/>
+ <Port Color="#556b2f" Description="" Drive="" Height="30" Name="AB7" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.240625" Y="0.972222"/>
+ <Port Color="#bdb76b" Description="" Drive="" Height="30" Name="L6" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.090625" Y="-0.0277778"/>
+ <Port Color="#556b2f" Description="" Drive="" Height="30" Name="K13" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.140625" Y="-0.0277778"/>
+ <Port Color="#9932cc" Description="" Drive="" Height="30" Name="J6" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.190625" Y="-0.0277778"/>
+ <Port Color="#8b0000" Description="" Drive="" Height="30" Name="H3" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.240625" Y="-0.0277778"/>
+ <Port Color="#e9967a" Description="" Drive="" Height="30" Name="H5" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.290625" Y="-0.0277778"/>
+ <Port Color="#8fbc8f" Description="" Drive="" Height="30" Name="J5" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.340625" Y="-0.0277778"/>
+ <Port Color="#483d8b" Description="" Drive="" Height="30" Name="U20" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.234259"/>
+ <Port Color="#2f4f4f" Description="" Drive="" Height="30" Name="U21" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.303125" Y="0.972222"/>
+ <Port Color="#483d8b" Description="" Drive="" Height="30" Name="A15" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.365625" Y="0.972222"/>
+ <Port Color="#2f4f4f" Description="" Drive="" Height="30" Name="AB1" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.428125" Y="0.972222"/>
+ <Port Color="#2f4f4f" Description="" Drive="" Height="30" Name="W21" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.490625" Y="0.972222"/>
+ <Port Color="#00ced1" Description="" Drive="" Height="30" Name="R18" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.553125" Y="0.972222"/>
+ <Port Color="#00bfff" Description="" Drive="" Height="30" Name="L6" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.615625" Y="0.972222"/>
+ <Port Color="#696969" Description="" Drive="" Height="30" Name="T1" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.678125" Y="0.972222"/>
+ <Port Color="#696969" Description="" Drive="" Height="30" Name="A15" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.740625" Y="0.972222"/>
+ <Port Color="#696969" Description="" Drive="" Height="30" Name="D19" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.803125" Y="0.972222"/>
+ <Port Color="#228b22" Description="" Drive="" Height="30" Name="T21" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.390625" Y="-0.0277778"/>
+ <Port Color="#ff00ff" Description="" Drive="" Height="30" Name="A14" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.440625" Y="-0.0277778"/>
+ <Port Color="#dcdcdc" Description="" Drive="" Height="30" Name="A13" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.490625" Y="-0.0277778"/>
+ <Port Color="#f8f8ff" Description="" Drive="" Height="30" Name="F20" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.540625" Y="-0.0277778"/>
+ <Port Color="#b22222" Description="" Drive="" Height="30" Name="Y8" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.590625" Y="-0.0277778"/>
+ <Port Color="#228b22" Description="" Drive="" Height="30" Name="J6" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.222222"/>
+ <Port Color="#ff00ff" Description="" Drive="" Height="30" Name="F18" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.269444"/>
+ <Port Color="#dcdcdc" Description="" Drive="" Height="30" Name="K14" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.316667"/>
+ <Port Color="#f8f8ff" Description="" Drive="" Height="30" Name="H13" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.363889"/>
+ <Port Color="#ffd700" Description="" Drive="" Height="30" Name="J15" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.411111"/>
+ <Port Color="#daa520" Description="" Drive="" Height="30" Name="G15" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.458333"/>
+ <Port Color="#808080" Description="" Drive="" Height="30" Name="G3" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.505556"/>
+ <Port Color="#008000" Description="" Drive="" Height="30" Name="E3" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.552778"/>
+ <Port Color="#adff2f" Description="" Drive="" Height="30" Name="AB18" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.640625" Y="-0.0277778"/>
+ <Port Color="#808080" Description="" Drive="" Height="30" Name="V19" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.172222"/>
+ <Port Color="#f0fff0" Description="" Drive="" Height="30" Name="K3" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.865625" Y="0.972222"/>
+ <Port Color="#ff69b4" Description="" Drive="" Height="30" Name="L1" Parent="TOP" Pull="none" Side="bottom" Voltage="LVCMOS33" Width="30" X="0.928125" Y="0.972222"/>
+ <Port Color="#cd5c5c" Description="" Drive="" Height="30" Name="K2" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.690625" Y="-0.0277778"/>
+ <Port Color="#4b0082" Description="" Drive="" Height="30" Name="K4" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.740625" Y="-0.0277778"/>
+ <Port Color="#fffff0" Description="" Drive="" Height="30" Name="H18" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.110185"/>
+ <Port Color="#f0e68c" Description="" Drive="" Height="30" Name="D21" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.790625" Y="-0.0277778"/>
+ <Port Color="#e6e6fa" Description="" Drive="" Height="30" Name="J22" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.127778"/>
+ <Port Color="#fff0f5" Description="" Drive="" Height="30" Name="H22" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.840625" Y="-0.0277778"/>
+ <Port Color="#7cfc00" Description="" Drive="" Height="30" Name="K17" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.0805556"/>
+ <Port Color="#7cfc00" Description="" Drive="" Height="30" Name="H5" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.175"/>
+ <Port Color="#fffacd" Description="" Drive="" Height="30" Name="M2" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.890625" Y="-0.0277778"/>
+ <Port Color="#add8e6" Description="" Drive="" Height="30" Name="P19" Parent="TOP" Pull="none" Side="left" Voltage="LVCMOS33" Width="30" X="-0.01875" Y="0.0333333"/>
+ <Port Color="#f08080" Description="" Drive="" Height="30" Name="N14" Parent="TOP" Pull="none" Side="right" Voltage="LVCMOS33" Width="30" X="0.98125" Y="0.0481481"/>
+ <Port Color="#e0ffff" Description="" Drive="" Height="30" Name="R16" Parent="TOP" Pull="none" Side="top" Voltage="LVCMOS33" Width="30" X="0.940625" Y="-0.0277778"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>clk_50m" Name="0" Parent="TOP" To="TOP>Y18"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="0" Parent="TOP" To="TOP>J20"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="1" Parent="TOP" To="TOP>K22"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="2" Parent="TOP" To="TOP>G20"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="3" Parent="TOP" To="TOP>K21"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="4" Parent="TOP" To="TOP>L21"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="5" Parent="TOP" To="TOP>M22"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="6" Parent="TOP" To="TOP>P20"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="7" Parent="TOP" To="TOP>N22"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#TOP1>key_in" Name="8" Parent="TOP" To="TOP>M21"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="0" Parent="TOP" To="TOP>AB6"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="1" Parent="TOP" To="TOP>W9"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="2" Parent="TOP" To="TOP>Y1"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="3" Parent="TOP" To="TOP>AB8"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="4" Parent="TOP" To="TOP>AA8"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="5" Parent="TOP" To="TOP>AA3"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="6" Parent="TOP" To="TOP>Y9"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>seg" Name="7" Parent="TOP" To="TOP>AA5"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#TOP1>sel" Name="0" Parent="TOP" To="TOP>AB2"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#TOP1>sel" Name="1" Parent="TOP" To="TOP>AB3"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#TOP1>sel" Name="2" Parent="TOP" To="TOP>AA4"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#TOP1>sel" Name="3" Parent="TOP" To="TOP>AB5"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#TOP1>sel" Name="4" Parent="TOP" To="TOP>AA6"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#TOP1>sel" Name="5" Parent="TOP" To="TOP>AB7"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>pwm_right" Name="0" Parent="TOP" To="TOP>H3"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>dir_left" Name="0" Parent="TOP" To="TOP>J5"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>rx" Name="0" Parent="TOP" To="TOP>U21"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>go" Name="0" Parent="TOP" To="TOP>K13"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>back" Name="0" Parent="TOP" To="TOP>AB1"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>back" Name="1" Parent="TOP" To="TOP>W21"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>right" Name="0" Parent="TOP" To="TOP>R18"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>left" Name="0" Parent="TOP" To="TOP>L6"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>left" Name="1" Parent="TOP" To="TOP>T1"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>go" Name="1" Parent="TOP" To="TOP>A15"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>U20" Name="0" Parent="TOP" To="TOP>U20"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#TOP1>right" Name="1" Parent="TOP" To="TOP>D19"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>tx" Name="0" Parent="TOP" To="TOP>T21"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="0" Parent="TOP" To="TOP>A14"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="1" Parent="TOP" To="TOP>A13"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="2" Parent="TOP" To="TOP>F20"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>buzz_out" Name="0" Parent="TOP" To="TOP>Y8"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>enc_left_b" Name="0" Parent="TOP" To="TOP>J6"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="3" Parent="TOP" To="TOP>F18"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="4" Parent="TOP" To="TOP>K14"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="5" Parent="TOP" To="TOP>H13"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="6" Parent="TOP" To="TOP>J15"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#TOP1>direction_in" Name="7" Parent="TOP" To="TOP>G15"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>enc_right_a" Name="0" Parent="TOP" To="TOP>G3"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>enc_right_b" Name="0" Parent="TOP" To="TOP>E3"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>dout" Name="0" Parent="TOP" To="TOP>AB18"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>sck" Name="0" Parent="TOP" To="TOP>V19"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>IN1" Name="0" Parent="TOP" To="TOP>K3"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>IN2" Name="0" Parent="TOP" To="TOP>L1"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>IN3" Name="0" Parent="TOP" To="TOP>K2"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>IN4" Name="0" Parent="TOP" To="TOP>K4"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>scl" Name="0" Parent="TOP" To="TOP>H18"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>sda" Name="0" Parent="TOP" To="TOP>J22"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>do" Name="0" Parent="TOP" To="TOP>K17"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>enc_left_a" Name="0" Parent="TOP" To="TOP>H5"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>pwm_left" Name="0" Parent="TOP" To="TOP>M2"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>P19" Name="0" Parent="TOP" To="TOP>P19"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>trig_2" Name="0" Parent="TOP" To="TOP>N14"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>echo_2" Name="0" Parent="TOP" To="TOP>R16"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>trig_1" Name="0" Parent="TOP" To="TOP>D21"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#TOP1>echo_1" Name="0" Parent="TOP" To="TOP>H22"/>
+</Module>

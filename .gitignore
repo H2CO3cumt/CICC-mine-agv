@@ -1,0 +1,15 @@
+﻿# 构建产物与临时文件
+build/
+*.bit
+*.fasm
+*.frame
+*.json
+*.vcd
+*.wlf
+*.db
+*.log
+Thumbs.db
+Desktop.ini
+__pycache__/
+*.py[cod]
+.venv/

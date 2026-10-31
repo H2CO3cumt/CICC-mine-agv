@@ -1,0 +1,242 @@
+<!DOCTYPE Robei>
+<Module Category="Current" Class="module" Code="assign U20=1;&#xa;assign P19=1;" Color="#d3d3d3" Comment="" Height="1280" Name="TOP" Parameters="" Parent="0" Type="model" Width="2241" X="0" Y="0">
+ <Module Category="Current" Class="CLK_DIV_TOP" Code="parameter MAX_500=1_000_00-1;&#xa;parameter MAX_2k=25_000-1;&#xa;parameter MAX_1=50_000_000-1;&#xa;parameter MAX_1k=50_000-1;&#xa;parameter MAX_10k=5_000-1;&#xa;parameter MAX_1m=50-1;&#xa;parameter MAX_10=5_000_000-1;&#xa;parameter MAX_100=5_000_00-1;&#xa;reg[23:0]cnt_100;&#xa;reg [19:0]cnt_500;&#xa;reg [15:0]cnt_2k;&#xa;reg [27:0]cnt_1;&#xa;reg [15:0]cnt_1k;&#xa;reg [15:0]cnt_10k;&#xa;reg [7:0]cnt_1m;&#xa;reg [23:0] rst_cnt;&#xa;reg [23:0] cnt_10;&#xa;reg rst_r;&#xa;initial begin&#xa;rst_cnt=0;&#xa;rst_r=0;&#xa;end&#xa;&#xa;always @(posedge clk_50m) begin&#xa;    if (rst_cnt != 24'd5_000_000) //保持0.1s的高电平&#xa;    begin&#xa;        rst_cnt &lt;= rst_cnt + 1;&#xa;        rst_r &lt;= 1;          // 复位期间保持高&#xa;    end else begin&#xa;        rst_r &lt;= 0;          // 复位结束后拉低&#xa;    end&#xa;end&#xa;assign rst=(key_value==9'b111_111_110)?1:rst_r;&#xa;always @ (posedge clk_50m or posedge rst  )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_500&lt;=0;&#xa;    en_500&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_500==MAX_500) begin&#xa;            cnt_500&lt;=0;&#xa;            en_500&lt;=1;&#xa;            end&#xa;         else begin cnt_500&lt;=cnt_500+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_500&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst  )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_100&lt;=0;&#xa;    en_100&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_100==MAX_100) begin&#xa;            cnt_100&lt;=0;&#xa;            en_100&lt;=1;&#xa;            end&#xa;         else begin cnt_100&lt;=cnt_100+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_100&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_2k&lt;=0;&#xa;    en_2k&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_2k==MAX_2k) begin&#xa;            cnt_2k&lt;=0;&#xa;            en_2k&lt;=1;&#xa;            end&#xa;         else begin cnt_2k&lt;=cnt_2k+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_2k&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst  )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_1&lt;=0;&#xa;    en_1&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_1==MAX_1) begin&#xa;            cnt_1&lt;=0;&#xa;            en_1&lt;=1;&#xa;            end&#xa;         else begin cnt_1&lt;=cnt_1+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_1&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_1k&lt;=0;&#xa;    en_1k&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_1k==MAX_1k) begin&#xa;            cnt_1k&lt;=0;&#xa;            en_1k&lt;=1;&#xa;            end&#xa;         else begin cnt_1k&lt;=cnt_1k+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_1k&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_10k&lt;=0;&#xa;    en_10k&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_10k==MAX_10k) begin&#xa;            cnt_10k&lt;=0;&#xa;            en_10k&lt;=1;&#xa;            end&#xa;         else begin cnt_10k&lt;=cnt_10k+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_10k&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst  )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_1m&lt;=0;&#xa;    en_1m&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_1m==MAX_1m) begin&#xa;            cnt_1m&lt;=0;&#xa;            en_1m&lt;=1;&#xa;            end&#xa;         else begin cnt_1m&lt;=cnt_1m+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_1m&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end&#xa;always @ (posedge clk_50m or posedge rst )&#xa;begin &#xa;&#x9;if(rst)begin&#xa;    cnt_10&lt;=0;&#xa;    en_10&lt;=0;&#xa;    end &#xa;    else begin&#xa;    &#x9;&#x9;if(cnt_10==MAX_10) begin&#xa;            cnt_10&lt;=0;&#xa;            en_10&lt;=1;&#xa;            end&#xa;         else begin cnt_10&lt;=cnt_10+1;&#xa;        &#x9;&#x9;&#x9;&#x9;en_10&lt;=0;&#xa;           &#x9;&#x9;end&#xa;    end&#xa;end" Color="antiquewhite" Comment="" Height="125" Name="CLK_DIV_TOP1" Parameters="" Parent="TOP" Type="model" Width="259" X="84" Y="100">
+  <Port Color="#faebd7" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="clk_50m" Parent="CLK_DIV_TOP1" Side="bottom" Width="30" X="0.0849421" Y="0.76"/>
+  <Port Color="#7fffd4" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_1" Parent="CLK_DIV_TOP1" Side="top" Width="30" X="0.274131" Y="-0.24"/>
+  <Port Color="#f0ffff" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_1k" Parent="CLK_DIV_TOP1" Side="top" Width="30" X="0.606178" Y="-0.24"/>
+  <Port Color="#f5f5dc" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_10k" Parent="CLK_DIV_TOP1" Side="right" Width="30" X="0.88417" Y="0.128"/>
+  <Port Color="#ffe4c4" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_1m" Parent="CLK_DIV_TOP1" Side="bottom" Width="30" X="0.227799" Y="0.76"/>
+  <Port Color="#b8860b" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_500" Parent="CLK_DIV_TOP1" Side="right" Width="30" X="0.88417" Y="0.376"/>
+  <Port Color="#ffebcd" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_2k" Parent="CLK_DIV_TOP1" Side="right" Width="30" X="0.88417" Y="0.624"/>
+  <Port Color="#ffebcd" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="rst" Parent="CLK_DIV_TOP1" Side="bottom" Width="30" X="0.370656" Y="0.76"/>
+  <Port Color="#0000ff" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_value" Parent="CLK_DIV_TOP1" Side="bottom" Width="30" X="0.513514" Y="0.76"/>
+  <Port Color="#8a2be2" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_10" Parent="CLK_DIV_TOP1" Side="bottom" Width="30" X="0.656371" Y="0.76"/>
+  <Port Color="#a52a2a" Connect="" Datasize="1" Datatype="reg" Description="" Height="30" Inout="output" Name="en_100" Parent="CLK_DIV_TOP1" Side="bottom" Width="30" X="0.799228" Y="0.76"/>
+ </Module>
+ <Module Category="Current" Class="CORE_CONTROL_TOP" Code="" Color="aqua" Comment="" Height="597" Name="CORE_CONTROL_TOP2" Parameters="" Parent="TOP" Type="model" Width="1326" X="452" Y="648">
+  <Port Color="#faebd7" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="clk_50m" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.0475113" Y="0.949749"/>
+  <Port Color="#f5f5dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="pwm_left" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.106335" Y="0.949749"/>
+  <Port Color="#ffe4c4" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_value" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.165158" Y="0.949749"/>
+  <Port Color="#b8860b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="pwm_right" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.223982" Y="0.949749"/>
+  <Port Color="#ffebcd" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="output" Name="car_state" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.282805" Y="0.949749"/>
+  <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_1k" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.0656109" Y="-0.0502513"/>
+  <Port Color="#a52a2a" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="rx" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.142534" Y="-0.0502513"/>
+  <Port Color="#7fffd4" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="rst" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.341629" Y="0.949749"/>
+  <Port Color="#5f9ea0" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_sensor" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.400452" Y="0.949749"/>
+  <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="force_stop" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.788945"/>
+  <Port Color="#ff7f50" Connect="" Datasize="24" Datatype="wire" Description="" Height="30" Inout="input" Name="weight_data" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.879397"/>
+  <Port Color="#6495ed" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="gas_alarm" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.219457" Y="-0.0502513"/>
+  <Port Color="#fff8dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="tx" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.29638" Y="-0.0502513"/>
+  <Port Color="#fff8dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_500" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.373303" Y="-0.0502513"/>
+  <Port Color="#dc143c" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN1" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.450226" Y="-0.0502513"/>
+  <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN2" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.0653266"/>
+  <Port Color="#00008b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN3" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.155779"/>
+  <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN4" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.527149" Y="-0.0502513"/>
+  <Port Color="#b8860b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="p23" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.246231"/>
+  <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="mpu_dir" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.604072" Y="-0.0502513"/>
+  <Port Color="#b8860b" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="input" Name="error_mpu" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.459276" Y="0.949749"/>
+  <Port Color="#006400" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_left_a" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.427136"/>
+  <Port Color="#a9a9a9" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_left_b" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.517588"/>
+  <Port Color="#bdb76b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_right_a" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.336683"/>
+  <Port Color="#8b008b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_right_b" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.60804"/>
+  <Port Color="#556b2f" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="input" Name="error_mag" Parent="CORE_CONTROL_TOP2" Side="left" Width="30" X="-0.0226244" Y="0.698492"/>
+  <Port Color="#ff8c00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="turn_dir" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.5181" Y="0.949749"/>
+  <Port Color="#696969" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="sensor_lost" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.680995" Y="-0.0502513"/>
+  <Port Color="#9932cc" Connect="" Datasize="16" Datatype="wire" Description="" Height="30" Inout="input" Name="distance_mm2" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.757919" Y="-0.0502513"/>
+  <Port Color="#1e90ff" Connect="" Datasize="16" Datatype="wire" Description="" Height="30" Inout="input" Name="distance_mm1" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.576923" Y="0.949749"/>
+  <Port Color="#e9967a" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="distance_vld_go" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.635747" Y="0.949749"/>
+  <Port Color="#1e90ff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="distance_vld_back" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.69457" Y="0.949749"/>
+  <Port Color="#483d8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="overload_state" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.753394" Y="0.949749"/>
+  <Port Color="#2f4f4f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="heavy_load_state" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.812217" Y="0.949749"/>
+  <Port Color="#228b22" Connect="" Datasize="24" Datatype="wire" Description="" Height="30" Inout="input" Name="load_change_amount" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.871041" Y="0.949749"/>
+  <Port Color="#fffaf0" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="load_event_toggle" Parent="CORE_CONTROL_TOP2" Side="bottom" Width="30" X="0.929864" Y="0.949749"/>
+  <Port Color="#00bfff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="mpu_dir_z" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.469012"/>
+  <Port Color="#696969" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="input" Name="error_mpu_z" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.765494"/>
+  <Port Color="#1e90ff" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="input" Name="sensor_fault" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.834842" Y="-0.0502513"/>
+  <Port Color="#b22222" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="input" Name="control_mode" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.864322"/>
+  <Port Color="#dcdcdc" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="input" Name="load_event_state" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.666667"/>
+  <Port Color="#ffd700" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="settle_time_fault" Parent="CORE_CONTROL_TOP2" Side="top" Width="30" X="0.911765" Y="-0.0502513"/>
+  <Port Color="#fffaf0" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="input" Name="track_confidence" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.567839"/>
+  <Port Color="#b22222" Connect="" Datasize="16" Datatype="wire" Description="" Height="30" Inout="input" Name="vibration_data" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.0737018"/>
+  <Port Color="#fffaf0" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="vibration_vld" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.271357"/>
+  <Port Color="#228b22" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="output" Name="key_cmd" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.370184"/>
+  <Port Color="#228b22" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="stall_alarm" Parent="CORE_CONTROL_TOP2" Side="right" Width="30" X="0.977376" Y="0.172529"/>
+ </Module>
+ <Module Category="Current" Class="UI_CMD_TOP" Code="&#xa;" Color="aquamarine" Comment="" Height="189" Name="UI_CMD_TOP3" Parameters="" Parent="TOP" Type="model" Width="283" X="35" Y="341">
+  <Port Color="#f0ffff" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="output" Name="key_value" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.0459364" Y="0.84127"/>
+  <Port Color="#5f9ea0" Connect="" Datasize="6" Datatype="wire" Description="" Height="30" Inout="output" Name="sel" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.144876" Y="0.84127"/>
+  <Port Color="#7fff00" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="output" Name="seg" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.243816" Y="0.84127"/>
+  <Port Color="#ff7f50" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="input" Name="car_state" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.342756" Y="0.84127"/>
+  <Port Color="#6495ed" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="buzz_out" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.441696" Y="0.84127"/>
+  <Port Color="#ff7f50" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_in" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.540636" Y="0.84127"/>
+  <Port Color="#faebd7" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_10k" Parent="UI_CMD_TOP3" Side="top" Width="30" X="0.194346" Y="-0.15873"/>
+  <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_1" Parent="UI_CMD_TOP3" Side="top" Width="30" X="0.441696" Y="-0.15873"/>
+  <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_2k" Parent="UI_CMD_TOP3" Side="right" Width="30" X="0.893993" Y="0.0846561"/>
+  <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_500" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.639576" Y="0.84127"/>
+  <Port Color="#d2691e" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="clk_50m" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.738516" Y="0.84127"/>
+  <Port Color="#7fffd4" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="rst" Parent="UI_CMD_TOP3" Side="bottom" Width="30" X="0.837456" Y="0.84127"/>
+  <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="gas_alarm" Parent="UI_CMD_TOP3" Side="left" Width="30" X="-0.106007" Y="0.417989"/>
+  <Port Color="#b8860b" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="back" Parent="UI_CMD_TOP3" Side="right" Width="30" X="0.893993" Y="0.248677"/>
+  <Port Color="#ffebcd" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="go" Parent="UI_CMD_TOP3" Side="right" Width="30" X="0.893993" Y="0.412698"/>
+  <Port Color="#0000ff" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="right" Parent="UI_CMD_TOP3" Side="right" Width="30" X="0.893993" Y="0.57672"/>
+  <Port Color="#6495ed" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="left" Parent="UI_CMD_TOP3" Side="right" Width="30" X="0.893993" Y="0.740741"/>
+  <Port Color="#fff8dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="stall_alarm" Parent="UI_CMD_TOP3" Side="top" Width="30" X="0.689046" Y="-0.15873"/>
+ </Module>
+ <Module Category="Current" Class="SENSOR_TOP" Code="//defparam SENSOR_TOP0.GAS_SENSOR0." Color="azure" Comment="" Height="343" Name="SENSOR_TOP4" Parameters="" Parent="TOP" Type="model" Width="1070" X="730" Y="117">
+  <Port Color="#faebd7" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="clk_50m" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.0158879" Y="0.912536"/>
+  <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="rst" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.0457944" Y="0.912536"/>
+  <Port Color="#f0ffff" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="input" Name="direction_in" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.0757009" Y="0.912536"/>
+  <Port Color="#f5f5dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="dout" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.105607" Y="0.912536"/>
+  <Port Color="#ffe4c4" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="do" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.135514" Y="0.912536"/>
+  <Port Color="#ffebcd" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="distance_vld" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.165421" Y="0.912536"/>
+  <Port Color="#deb887" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="sck" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.195327" Y="0.912536"/>
+  <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="gas_alarm" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.225234" Y="0.912536"/>
+  <Port Color="#d2691e" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="force_stop" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.25514" Y="0.912536"/>
+  <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_10k" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.0962617" Y="-0.0874636"/>
+  <Port Color="#d2691e" Connect="" Datasize="24" Datatype="wire" Description="" Height="30" Inout="output" Name="weight_data" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.285047" Y="0.912536"/>
+  <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="weight_data_vld" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.314953" Y="0.912536"/>
+  <Port Color="#6495ed" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="inout" Name="sda" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.34486" Y="0.912536"/>
+  <Port Color="#fff8dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="en_100" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.374766" Y="0.912536"/>
+  <Port Color="#dc143c" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="scl" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.404673" Y="0.912536"/>
+  <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="mpu_dir" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.434579" Y="0.912536"/>
+  <Port Color="#00008b" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="output" Name="error_mpu" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.464486" Y="0.912536"/>
+  <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="turn_dir" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.494393" Y="0.912536"/>
+  <Port Color="#b8860b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="sensor_lost" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.524299" Y="0.912536"/>
+  <Port Color="#b8860b" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="output" Name="error_mag" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.554206" Y="0.912536"/>
+  <Port Color="#006400" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="output" Name="ack_err_code" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.206542" Y="-0.0874636"/>
+  <Port Color="#a9a9a9" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="input" Name="car_state" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.584112" Y="0.912536"/>
+  <Port Color="#bdb76b" Connect="" Datasize="16" Datatype="wire" Description="" Height="30" Inout="output" Name="distance_mm2" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.316822" Y="-0.0874636"/>
+  <Port Color="#8b008b" Connect="" Datasize="16" Datatype="wire" Description="" Height="30" Inout="output" Name="distance_mm1" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.614019" Y="0.912536"/>
+  <Port Color="#7fffd4" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="echo_1" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.643925" Y="0.912536"/>
+  <Port Color="#b8860b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="trig_1" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.673832" Y="0.912536"/>
+  <Port Color="#556b2f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="distance_vld_go" Parent="SENSOR_TOP4" Side="left" Width="30" X="-0.0280374" Y="0.28863"/>
+  <Port Color="#ff8c00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="distance_vld_back" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.703738" Y="0.912536"/>
+  <Port Color="#9932cc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="echo_2" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.733645" Y="0.912536"/>
+  <Port Color="#8b0000" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="trig_2" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.763551" Y="0.912536"/>
+  <Port Color="#a52a2a" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="heavy_load_state" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.793458" Y="0.912536"/>
+  <Port Color="#e9967a" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="overload_state" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.823364" Y="0.912536"/>
+  <Port Color="#8fbc8f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="settle_time_fault" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.427103" Y="-0.0874636"/>
+  <Port Color="#483d8b" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="load_event_state" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.537383" Y="-0.0874636"/>
+  <Port Color="#2f4f4f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="load_event_toggle" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.853271" Y="0.912536"/>
+  <Port Color="#2f4f4f" Connect="" Datasize="24" Datatype="wire" Description="" Height="30" Inout="output" Name="load_change_amount" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.883178" Y="0.912536"/>
+  <Port Color="#00ced1" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="control_mode" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.913084" Y="0.912536"/>
+  <Port Color="#9400d3" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="output" Name="sensor_fault" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.647664" Y="-0.0874636"/>
+  <Port Color="#ff1493" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="output" Name="track_confidence" Parent="SENSOR_TOP4" Side="bottom" Width="30" X="0.942991" Y="0.912536"/>
+  <Port Color="#00bfff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="mpu_dir_z" Parent="SENSOR_TOP4" Side="right" Width="30" X="0.971963" Y="0.28863"/>
+  <Port Color="#696969" Connect="" Datasize="4" Datatype="wire" Description="" Height="30" Inout="output" Name="error_mpu_z" Parent="SENSOR_TOP4" Side="right" Width="30" X="0.971963" Y="0.620991"/>
+  <Port Color="#696969" Connect="" Datasize="16" Datatype="wire" Description="" Height="30" Inout="output" Name="vibtation_data" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.757944" Y="-0.0874636"/>
+  <Port Color="#696969" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="vibration_vld" Parent="SENSOR_TOP4" Side="top" Width="30" X="0.868224" Y="-0.0874636"/>
+  <Port Color="#1e90ff" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_cmd" Parent="SENSOR_TOP4" Side="left" Width="30" X="-0.0280374" Y="0.620991"/>
+ </Module>
+ <Port Color="#faebd7" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="clk_50m" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.699219"/>
+ <Port Color="#7fffd4" Connect="" Datasize="9" Datatype="wire" Description="" Height="30" Inout="input" Name="key_in" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.770312"/>
+ <Port Color="#0000ff" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="right" Parent="TOP" Side="bottom" Width="30" X="0.0932619" Y="0.976563"/>
+ <Port Color="#8a2be2" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="go" Parent="TOP" Side="bottom" Width="30" X="0.193217" Y="0.976563"/>
+ <Port Color="#a52a2a" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="back" Parent="TOP" Side="bottom" Width="30" X="0.293173" Y="0.976563"/>
+ <Port Color="#ffebcd" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="output" Name="seg" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.650781"/>
+ <Port Color="#0000ff" Connect="" Datasize="6" Datatype="wire" Description="" Height="30" Inout="output" Name="sel" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.733594"/>
+ <Port Color="#8a2be2" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="buzz_out" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.816406"/>
+ <Port Color="#5f9ea0" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="pwm_left" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.402344"/>
+ <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="dir_left" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.567969"/>
+ <Port Color="#7fff00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="rx" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.841406"/>
+ <Port Color="#00008b" Connect="" Datasize="2" Datatype="wire" Description="" Height="30" Inout="output" Name="left" Parent="TOP" Side="bottom" Width="30" X="0.393128" Y="0.976563"/>
+ <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="U20" Parent="TOP" Side="bottom" Width="30" X="0.493083" Y="0.976563"/>
+ <Port Color="#ff7f50" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="tx" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.153906"/>
+ <Port Color="#00ffff" Connect="" Datasize="8" Datatype="wire" Description="" Height="30" Inout="input" Name="direction_in" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.9125"/>
+ <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="pwm_right" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.319531"/>
+ <Port Color="#fff8dc" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_left_a" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.272656"/>
+ <Port Color="#dc143c" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_left_b" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.485938"/>
+ <Port Color="#00ffff" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_right_a" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.557031"/>
+ <Port Color="#00008b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="enc_right_b" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.628125"/>
+ <Port Color="#008b8b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="dout" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.130469"/>
+ <Port Color="#b8860b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="echo_1" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.414844"/>
+ <Port Color="#006400" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="do" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.201563"/>
+ <Port Color="#a9a9a9" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="sck" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.485156"/>
+ <Port Color="#bdb76b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="trig_1" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.236719"/>
+ <Port Color="#bdb76b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN1" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.899219"/>
+ <Port Color="#8b008b" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN2" Parent="TOP" Side="bottom" Width="30" X="0.593039" Y="0.976563"/>
+ <Port Color="#556b2f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN3" Parent="TOP" Side="bottom" Width="30" X="0.692994" Y="0.976563"/>
+ <Port Color="#ff8c00" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="IN4" Parent="TOP" Side="bottom" Width="30" X="0.79295" Y="0.976563"/>
+ <Port Color="#8b0000" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="inout" Name="sda" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.059375"/>
+ <Port Color="#8b0000" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="P19" Parent="TOP" Side="left" Width="30" X="-0.0133869" Y="0.34375"/>
+ <Port Color="#8b0000" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="scl" Parent="TOP" Side="right" Width="30" X="0.986613" Y="0.0710937"/>
+ <Port Color="#e9967a" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="input" Name="echo_2" Parent="TOP" Side="top" Width="30" X="0.493083" Y="-0.0234375"/>
+ <Port Color="#8fbc8f" Connect="" Datasize="1" Datatype="wire" Description="" Height="30" Inout="output" Name="trig_2" Parent="TOP" Side="bottom" Width="30" X="0.892905" Y="0.976563"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>clk_50m" Name="TOP_clk_50m" Parent="TOP" To="TOP#CLK_DIV_TOP1>clk_50m"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP>key_in" Name="TOP_key_in" Parent="TOP" To="TOP#UI_CMD_TOP3>key_in"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>clk_50m" Name="TOP_clk_50m" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>clk_50m"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#UI_CMD_TOP3>key_value" Name="UI_CMD_TOP3_key_value" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>key_value"/>
+ <Wire Datasize="4" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>car_state" Name="CORE_CONTROL_TOP2_car_state" Parent="TOP" To="TOP#UI_CMD_TOP3>car_state"/>
+ <Wire Datasize="6" Datatype="wire" From="TOP#UI_CMD_TOP3>sel" Name="UI_CMD_TOP3_sel" Parent="TOP" To="TOP>sel"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#UI_CMD_TOP3>seg" Name="UI_CMD_TOP3_seg" Parent="TOP" To="TOP>seg"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#UI_CMD_TOP3>buzz_out" Name="UI_CMD_TOP3_buzz_out" Parent="TOP" To="TOP>buzz_out"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>pwm_left" Name="CORE_CONTROL_TOP2_pwm_left" Parent="TOP" To="TOP>pwm_left"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_1" Name="CLK_DIV_TOP1_en_1" Parent="TOP" To="TOP#UI_CMD_TOP3>en_1"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_1k" Name="CLK_DIV_TOP1_en_1k" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>en_1k"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_10k" Name="CLK_DIV_TOP1_en_10k" Parent="TOP" To="TOP#UI_CMD_TOP3>en_10k"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_500" Name="CLK_DIV_TOP1_en_500" Parent="TOP" To="TOP#UI_CMD_TOP3>en_500"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_2k" Name="CLK_DIV_TOP1_en_2k" Parent="TOP" To="TOP#UI_CMD_TOP3>en_2k"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>clk_50m" Name="TOP_clk_50m" Parent="TOP" To="TOP#UI_CMD_TOP3>clk_50m"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>rx" Name="TOP_rx" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>rx"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>rst" Name="CLK_DIV_TOP1_rst" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>rst"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>rst" Name="CLK_DIV_TOP1_rst" Parent="TOP" To="TOP#UI_CMD_TOP3>rst"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#UI_CMD_TOP3>key_value" Name="UI_CMD_TOP3_key_value" Parent="TOP" To="TOP#CLK_DIV_TOP1>key_value"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>force_stop" Name="SENSOR_TOP4_force_stop" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>force_stop"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>gas_alarm" Name="SENSOR_TOP4_gas_alarm" Parent="TOP" To="TOP#UI_CMD_TOP3>gas_alarm"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>clk_50m" Name="TOP_clk_50m" Parent="TOP" To="TOP#SENSOR_TOP4>clk_50m"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>rst" Name="CLK_DIV_TOP1_rst" Parent="TOP" To="TOP#SENSOR_TOP4>rst"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#UI_CMD_TOP3>go" Name="UI_CMD_TOP3_go" Parent="TOP" To="TOP>go"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#UI_CMD_TOP3>back" Name="UI_CMD_TOP3_back" Parent="TOP" To="TOP>back"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#UI_CMD_TOP3>right" Name="UI_CMD_TOP3_right" Parent="TOP" To="TOP>right"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#UI_CMD_TOP3>left" Name="UI_CMD_TOP3_left" Parent="TOP" To="TOP>left"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>tx" Name="CORE_CONTROL_TOP2_tx" Parent="TOP" To="TOP>tx"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>gas_alarm" Name="SENSOR_TOP4_gas_alarm" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>gas_alarm"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_500" Name="CLK_DIV_TOP1_en_500" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>en_500"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP>direction_in" Name="TOP_direction_in" Parent="TOP" To="TOP#SENSOR_TOP4>direction_in"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>pwm_right" Name="CORE_CONTROL_TOP2_pwm_right" Parent="TOP" To="TOP>pwm_right"/>
+ <Wire Datasize="24" Datatype="wire" From="TOP#SENSOR_TOP4>weight_data" Name="SENSOR_TOP4_weight_data" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>weight_data"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_10k" Name="CLK_DIV_TOP1_en_10k" Parent="TOP" To="TOP#SENSOR_TOP4>en_10k"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>enc_left_a" Name="TOP_enc_left_a" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>enc_left_a"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>enc_left_b" Name="TOP_enc_left_b" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>enc_left_b"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>enc_right_a" Name="TOP_enc_right_a" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>enc_right_a"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>enc_right_b" Name="TOP_enc_right_b" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>enc_right_b"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>dout" Name="TOP_dout" Parent="TOP" To="TOP#SENSOR_TOP4>dout"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>do" Name="TOP_do" Parent="TOP" To="TOP#SENSOR_TOP4>do"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>sck" Name="SENSOR_TOP4_sck" Parent="TOP" To="TOP>sck"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>IN4" Name="CORE_CONTROL_TOP2_IN4" Parent="TOP" To="TOP>IN4"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>IN1" Name="CORE_CONTROL_TOP2_IN1" Parent="TOP" To="TOP>IN1"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>IN2" Name="CORE_CONTROL_TOP2_IN2" Parent="TOP" To="TOP>IN2"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>IN3" Name="CORE_CONTROL_TOP2_IN3" Parent="TOP" To="TOP>IN3"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CLK_DIV_TOP1>en_100" Name="CLK_DIV_TOP1_en_100" Parent="TOP" To="TOP#SENSOR_TOP4>en_100"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>turn_dir" Name="SENSOR_TOP4_turn_dir" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>turn_dir"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>mpu_dir" Name="SENSOR_TOP4_mpu_dir" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>mpu_dir"/>
+ <Wire Datasize="4" Datatype="wire" From="TOP#SENSOR_TOP4>error_mpu" Name="SENSOR_TOP4_error_mpu" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>error_mpu"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>sda" Name="SENSOR_TOP4_sda" Parent="TOP" To="TOP>sda"/>
+ <Wire Datasize="4" Datatype="wire" From="TOP#SENSOR_TOP4>error_mag" Name="SENSOR_TOP4_error_mag" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>error_mag"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>scl" Name="SENSOR_TOP4_scl" Parent="TOP" To="TOP>scl"/>
+ <Wire Datasize="4" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>car_state" Name="CORE_CONTROL_TOP2_car_state" Parent="TOP" To="TOP#SENSOR_TOP4>car_state"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>sensor_lost" Name="SENSOR_TOP4_sensor_lost" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>sensor_lost"/>
+ <Wire Datasize="16" Datatype="wire" From="TOP#SENSOR_TOP4>distance_mm1" Name="SENSOR_TOP4_distance_mm1" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>distance_mm1"/>
+ <Wire Datasize="16" Datatype="wire" From="TOP#SENSOR_TOP4>distance_mm2" Name="SENSOR_TOP4_distance_mm2" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>distance_mm2"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>trig_1" Name="SENSOR_TOP4_trig_1" Parent="TOP" To="TOP>trig_1"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>echo_1" Name="TOP_echo_1" Parent="TOP" To="TOP#SENSOR_TOP4>echo_1"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>distance_vld_back" Name="SENSOR_TOP4_distance_vld_back" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>distance_vld_back"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>distance_vld_go" Name="SENSOR_TOP4_distance_vld_go" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>distance_vld_go"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>trig_2" Name="SENSOR_TOP4_trig_2" Parent="TOP" To="TOP>trig_2"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP>echo_2" Name="TOP_echo_2" Parent="TOP" To="TOP#SENSOR_TOP4>echo_2"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>overload_state" Name="SENSOR_TOP4_overload_state" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>overload_state"/>
+ <Wire Datasize="24" Datatype="wire" From="TOP#SENSOR_TOP4>load_change_amount" Name="SENSOR_TOP4_load_change_amount" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>load_change_amount"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>load_event_toggle" Name="SENSOR_TOP4_load_event_toggle" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>load_event_toggle"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>heavy_load_state" Name="SENSOR_TOP4_heavy_load_state" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>heavy_load_state"/>
+ <Wire Datasize="4" Datatype="wire" From="TOP#SENSOR_TOP4>error_mpu_z" Name="SENSOR_TOP4_error_mpu_z" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>error_mpu_z"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#SENSOR_TOP4>control_mode" Name="SENSOR_TOP4_control_mode" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>control_mode"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>settle_time_fault" Name="SENSOR_TOP4_settle_time_fault" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>settle_time_fault"/>
+ <Wire Datasize="2" Datatype="wire" From="TOP#SENSOR_TOP4>load_event_state" Name="SENSOR_TOP4_load_event_state" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>load_event_state"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>mpu_dir_z" Name="SENSOR_TOP4_mpu_dir_z" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>mpu_dir_z"/>
+ <Wire Datasize="4" Datatype="wire" From="TOP#SENSOR_TOP4>track_confidence" Name="SENSOR_TOP4_track_confidence" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>track_confidence"/>
+ <Wire Datasize="8" Datatype="wire" From="TOP#SENSOR_TOP4>sensor_fault" Name="SENSOR_TOP4_sensor_fault" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>sensor_fault"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#SENSOR_TOP4>vibration_vld" Name="SENSOR_TOP4_vibration_vld" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>vibration_vld"/>
+ <Wire Datasize="16" Datatype="wire" From="TOP#SENSOR_TOP4>vibtation_data" Name="SENSOR_TOP4_vibtation_data" Parent="TOP" To="TOP#CORE_CONTROL_TOP2>vibration_data"/>
+ <Wire Datasize="9" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>key_cmd" Name="CORE_CONTROL_TOP2_key_cmd" Parent="TOP" To="TOP#SENSOR_TOP4>key_cmd"/>
+ <Wire Datasize="1" Datatype="wire" From="TOP#CORE_CONTROL_TOP2>stall_alarm" Name="CORE_CONTROL_TOP2_stall_alarm" Parent="TOP" To="TOP#UI_CMD_TOP3>stall_alarm"/>
+</Module>
