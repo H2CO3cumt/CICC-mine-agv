@@ -1,5 +1,13 @@
 # 基于 Robei EDA 的多传感融合智能矿用 AGV
 
+[![MIT](https://img.shields.io/badge/license-MIT-24466e)](./LICENSE)
+[![CERN-OHL-P-2.0](https://img.shields.io/badge/hardware-CERN--OHL--P--2.0-24466e)](./LICENSE-hardware-CERN-OHL-P-2.0.txt)
+[![site](https://img.shields.io/badge/site-h2co3cumt.github.io-24466e)](https://h2co3cumt.github.io/works/cicc-mine-agv/)
+
+项目主页：<https://h2co3cumt.github.io/works/cicc-mine-agv/>
+
+![作品海报](./docs/poster.png)
+
 煤矿井下运输的一辆 AGV，要同时盯好几件事：路径要跟住，前后不能撞，载荷不能丢也不能超，路面颠簸不能误判成掉货，巷道里还可能有瓦斯。用 MCU 做，这些事只能靠轮询和中断排队，传感器一多，谁先谁后就变成调度问题；异常同时出现时"先处理哪个"还要在代码里写死。
 
 这个作品换了个做法：**整辆车只有 FPGA**。瓦斯、双向超声波、HX711 称重、八路灰度循迹、MPU6050 航向与振动、编码器测速各自是独立的 RTL 模块，在同一个 50 MHz 时钟下并行运行，谁都不用等谁。安全信号能不能压过运动命令，由状态仲裁模块说了算，不靠程序执行顺序。
